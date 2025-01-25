@@ -60,7 +60,7 @@ class PaystacksService {
         try {
             logger.info("payload", payload.reference);
             return await this._axios
-                .get(`/transaction/verify/${payload.reference || payload.trxref}`)
+                .get(`/transaction/verify/${payload.reference}`)
                 .then(data =>{
                     logger.info("Verification Successful",data.data.data.status)
                     if(data.data.data.status !== 'success'){
@@ -72,19 +72,12 @@ class PaystacksService {
                     logger.error("Verification Error",error.response.data)
                     return {status: false, error: error.response.data}
                 })
-
-            // logger.info("VErifying ============>>>>>> ", response);
-        
-            // return {
-            //     status: response.data.status,
-            //     data: response.data.data};
         } catch (error) {
             logger.error("Verify transaction failed", error.response.data|| error.message)
             return {
                 status: false,
                 error: error.response && error.response.data && error.response.data.message || error.message || 'Gateway Timeout',
             };
-            // throw new CustomPaystackError(e);
         }
     }
 
