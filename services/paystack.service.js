@@ -60,7 +60,7 @@ class PaystacksService {
         try {
             logger.info("payload", payload.reference);
             return await this._axios
-                .get(`/transaction/verify/${payload.trxref}`)
+                .get(`/transaction/verify/${payload.reference || payload.trxref}`)
                 .then(data =>{
                     logger.info("Verification Successful",data.data.data.status)
                     if(data.data.data.status !== 'success'){
