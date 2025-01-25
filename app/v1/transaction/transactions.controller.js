@@ -14,7 +14,7 @@ exports.getUserTransactions = async (req,res) => {
 }
 exports.getAllTransactions = async (req,res) => {
     const filter = req.query
-    console.log({filter})
+    logger.info({filter})
     const { error, data } = await transactionService.getAllTransactions(filter);
 
     if (error) return createErrorResponse(res, "error fetching users", error, 400);

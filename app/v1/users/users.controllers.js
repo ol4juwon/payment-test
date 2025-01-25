@@ -5,7 +5,6 @@ const authService = require('./users.service');
 exports.register = async (req, res) => {
 
 	const payload = req.body;
-  console.log('register', payload);
 	const { error, data } = await authService.register(payload);
 
 	if (error) return createErrorResponse(res, "error creating user", error, 400);

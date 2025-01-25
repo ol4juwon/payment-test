@@ -22,7 +22,7 @@ const schema = mongoose.Schema({
 });
 
 schema.post('save', function(card){
-    console.log("Post save ", card);
+    logger.info("Post save ", card);
 })
 
 schema.index({"$**": "text"});
