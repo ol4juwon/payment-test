@@ -105,7 +105,7 @@ exports.chargeCardAuth = async (user_id, {cardId, amount, reason}) => {
 exports.verify = async (trxref, reference, ab) => {
     try {
         const payload = {trxref, reference};
-        const transaction = await paymentModel.findOne({trx_ref: trxref}).then(res =>res);
+        const transaction = await paymentModel.findOne({trx_ref: trxref || reference}).then(res =>res);
         if(!transaction){
             return {error: "transaction not found"}
         }
