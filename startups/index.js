@@ -1,3 +1,3 @@
-module.exports = (app, express) => {
+module.exports = () => {
     require("./database");
 };

@@ -4,7 +4,7 @@ exports.getUserTransactions = async (req,res) => {
     const {user_id} = req.params;
     const filter = req.query
     if(!user_id || user_id === ':user_id'){
-        return createErrorResponse(res, "please provide a valid user_id", error, 422);
+        return createErrorResponse(res, "please provide a valid user_id",["invalid user_id"], 422);
     }
     const { error, data } = await transactionService.getUserTransactions(user_id, filter);
 

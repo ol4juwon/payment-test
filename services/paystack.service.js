@@ -46,7 +46,7 @@ class PaystacksService {
 
         try{
             logger.info("payload", payload);
-            const response = await this._axios.post(`/transaction/charge_authorization`, );
+            return await this._axios.post(`/transaction/charge_authorization`, );
 
         }catch(e){
             logger.error(e.response.data);

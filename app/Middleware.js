@@ -1,6 +1,5 @@
 'use strict';
 const {verify} = require("jsonwebtoken");
-const debug = require('debug')('app:debug');
 
 // const {clients} = require('./Clients');
 

@@ -23,7 +23,7 @@ class Repository {
 
     truncate(condition = {}) {
         // return this.Model.deleteMany(condition);
-        if (process.env.NODE_ENV == "development") {
+        if (process.env.NODE_ENV === "development") {
             return this.Model.deleteMany(condition);
         }
     }
@@ -36,9 +36,9 @@ class Repository {
         return this.Model.findOne(condition).sort(sort);
     };
 
-    all(condition = {}, sort ="desc", orderBy = "createdAt",page = null, limit = 100, order= 'desc') {
+    all(condition = {}, sort ="desc", orderBy = "createdAt",page = null, limit = 100) {
         logger.info( { page, limit:limit, sort: sort , order: orderBy})
-        const sortBy ={[orderBy]: sort == 'asc' ? 1:-1}
+        const sortBy ={[orderBy]: sort === 'asc' ? 1:-1}
         console.log({sort})
         if (page) {
 
@@ -55,8 +55,7 @@ class Repository {
      @param page
      The search function search for documents with paginating them
      */
-    search(condition = {}, sortBy={}, page={}){
-        // console.log("The query is ", condition);
+    search(condition = {}, sortBy={}){
         return this.Model.find(condition).sort(sortBy);
     }
 

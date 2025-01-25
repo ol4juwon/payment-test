@@ -29,9 +29,8 @@ app.use((req, res, next) => {
     res.removeListener('close', abortFn);
     res.removeListener('error', errorFn);
   };
-  const logFn = (a, b, c) => {
+  const logFn = () => {
     logger.info('Response', requestId);
-    // debug("l");
     logger.info('Time Ended', moment().toISOString(true));
     cleanup();
   };
@@ -59,7 +58,7 @@ app.use((req, res, next) => {
 
 
 // error handler
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   res.status(err && err.status || 500);
   res.send({error: err && err.message || 'An error occurred'});
 });

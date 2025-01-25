@@ -1,7 +1,6 @@
 'use strict';
 
 const axios = require('axios');
-const debug = require('debug')('app:debug');
 
 const  log4js = require("log4js");
 const logger = log4js.getLogger();

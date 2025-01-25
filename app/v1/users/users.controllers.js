@@ -1,5 +1,4 @@
 'use strict';
-const debug = require('debug')('äpp:debug');
 const authService = require('./users.service');
 
 exports.register = async (req, res) => {
